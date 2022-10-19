@@ -1,0 +1,1 @@
+/home/aaditya/.config/i3
