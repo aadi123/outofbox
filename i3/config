@@ -187,6 +187,6 @@ gaps outer 3
 smart_gaps on
 
 # Rofi configuration
-bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun -dpi 192 -show-icons -icon-theme "Papirus"
+bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun -show-icons -icon-theme "Papirus"
 
-bindsym $mod+t exec --no-startup-id rofi -show window -dpi 192 -show-icons -icon-theme "Papirus"
+bindsym $mod+t exec --no-startup-id rofi -show window -show-icons -icon-theme "Papirus"
