@@ -26,6 +26,11 @@ fi
 
 unset rc
 
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+	  eval `ssh-agent -s`
+	    ssh-add
+fi
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(oh-my-posh init bash --config $(brew --prefix oh-my-posh)/themes/jandedobbeleer.omp.json)"
 export PATH="~/.emacs.d/bin:$PATH"
