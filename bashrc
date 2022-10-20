@@ -26,6 +26,5 @@ fi
 
 unset rc
 
-export TERMINAL=alacritty
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(oh-my-posh init bash --config $(brew --prefix oh-my-posh)/themes/jandedobbeleer.omp.json)"
