@@ -1,2 +1,2 @@
 # dotfiles
-Repository storing all my dotfiles for various packages and services
+Repository storing dotfiles, configuration files, and scripts for a fresh outofbox Fedora Installation
