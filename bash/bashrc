@@ -26,9 +26,4 @@ fi
 
 unset rc
 
-export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
-
-[ -f "/home/aaditya/.ghcup/env" ] && source "/home/aaditya/.ghcup/env" # ghcup-env
-
 export GOPATH="$HOME/go"
-/usr/bin/fish
