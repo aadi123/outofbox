@@ -3,4 +3,3 @@ if status is-interactive
 end
 set -gx LEDGER_FILE /home/aaditya/Documents/finances/2022.journal
 starship init fish | source
-

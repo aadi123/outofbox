@@ -27,3 +27,4 @@ fi
 unset rc
 
 export GOPATH="$HOME/go"
+eval "$(starship init bash)"

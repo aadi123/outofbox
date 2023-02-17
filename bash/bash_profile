@@ -1,15 +1,13 @@
 # .bash_profile
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+EDITOR=micro
+if [ -f ~/.bashrc ]; then 
+	. ~/.bashrc 
 fi
 
-# User specific environment and startup programs
+# Set Path for USER Programs
 
-
-# Added by Toolbox App
-export PATH="$PATH:/home/aaditya/.local/share/JetBrains/Toolbox/scripts"
-
-# Set PATH, MANPATH, etc., for Homebrew.
+# Path for Toolbox
+export PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
+# Set path for brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
