@@ -7,7 +7,8 @@ fi
 
 # Set Path for USER Programs
 
-# Path for Toolbox
-export PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
 # Set path for brew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Added by Toolbox App
+export PATH="$PATH:/home/aaditya/.local/share/JetBrains/Toolbox/scripts"
