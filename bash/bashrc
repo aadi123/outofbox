@@ -26,5 +26,6 @@ fi
 
 unset rc
 
-export GOPATH="$HOME/go"
 eval "$(starship init bash)"
+
+[ -f "/home/aaditya/.ghcup/env" ] && source "/home/aaditya/.ghcup/env" # ghcup-env
