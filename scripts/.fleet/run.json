@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "Run",
+            "program": "./hello",
+            "dependsOn": ["Build"],
+        },
+        {
+            "type": "command",
+            "name": "Build",
+            "program": "/usr/bin/g++",
+            "args": ["-o", "hello", "hello.cpp"]
+        }
+    ]
+}
