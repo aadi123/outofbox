@@ -108,7 +108,7 @@
 
 (after! org-journal
   (setq org-journal-enable-agenda-integration t)
-  (setq org-journal-date-prefix "#+title: \n#+filetags: :journal:\n#+date: ")
+  (setq org-journal-date-prefix "#+title: Daily Journal Entry\n#+filetags: :journal:\n#+date: ")
   (setq org-journal-time-prefix "* ")
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-time-format "%I:%M %p"))
