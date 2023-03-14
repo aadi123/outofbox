@@ -43,7 +43,7 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Dropbox/org")
 (setq org-roam-directory "~/Dropbox/org/second-brain")
-(setq deft-directory org-roam-directory)
+(setq deft-directory org-directory)
 (setq deft-recursive t)
 
 
@@ -108,8 +108,8 @@
 
 (after! org-journal
   (setq org-journal-enable-agenda-integration t)
-  (setq org-journal-date-prefix "#+title: Daily Journal Entry\n#+filetags: :journal:\n#+date: ")
-  (setq org-journal-time-prefix "* ")
+  (setq org-journal-date-prefix "#+title: Daily Journal Entry\n#+date: ")
+  (setq org-journal-time-prefix "\n* ")
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-time-format "%I:%M %p"))
 
