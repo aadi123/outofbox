@@ -78,10 +78,35 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(after! org
+  (setq org-todo-keywords '((sequence "TODO(t)" "PROJ(p)" "LOOP(r)" "STRT(s)" "WAIT(w)" "HOLD(h)" "IDEA(i)" "|" "DONE(d)" "KILL(k)")
+ (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")
+ (sequence "|" "OKAY(o)" "YES(y)" "NO(n)")
+ (sequence "EVENT(e)" "|" "CANCELLED(c)")))
+
+  (setq org-todo-keyword-faces
+        '(("[-]" . +org-todo-active)
+ ("STRT" . +org-todo-active)
+ ("[?]" . +org-todo-onhold)
+ ("WAIT" . +org-todo-onhold)
+ ("HOLD" . +org-todo-onhold)
+ ("PROJ" . +org-todo-project)
+ ("NO" . +org-todo-cancel)
+ ("KILL" . +org-todo-cancel)
+ ("CANCELLED" . +org-todo-cancel)
+ ("EVENT" . org-warning))))
+
 (after! org-roam
   (setq org-roam-db-autosync-mode t)
-  (setq org-roam-completion-everywhere t)
-  (setq org-roam-agenda-integration t))
+  (setq org-roam-completion-everywhere t))
+
+(after! org-journal
+  (setq org-journal-enable-agenda-integration t)
+  (setq org-journal-date-prefix "#+TITLE: ")
+  (setq org-journal-time-prefix "* ")
+  (setq org-journal-file-format "%Y-%m-%d.org")
+  (setq org-journal-time-format "%I:%M %p"))
 
 (use-package! websocket
     :after org-roam)
