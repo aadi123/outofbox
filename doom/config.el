@@ -99,11 +99,16 @@
 
 (after! org-roam
   (setq org-roam-db-autosync-mode t)
-  (setq org-roam-completion-everywhere t))
+  (setq org-roam-completion-everywhere t)
+  (setq org-roam-dailies-capture-templates
+        '(("d" "default" entry
+           "* %?"
+           :if-new (file+head "%<%Y-%m-%d-fleeting>.org"
+                              "#+title: %<%Y-%m-%d>)\n")))))
 
 (after! org-journal
   (setq org-journal-enable-agenda-integration t)
-  (setq org-journal-date-prefix "#+title: ")
+  (setq org-journal-date-prefix "#+title: \n#+filetags: :journal:\n#+date: ")
   (setq org-journal-time-prefix "* ")
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-time-format "%I:%M %p"))
