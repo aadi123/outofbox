@@ -45,6 +45,7 @@
 (setq org-roam-directory "~/Dropbox/org/second-brain")
 (setq deft-directory org-directory)
 (setq deft-recursive t)
+(setq initial-major-mode 'org-mode)
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
