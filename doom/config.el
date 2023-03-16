@@ -104,13 +104,14 @@
   (setq org-roam-dailies-capture-templates
         '(("d" "default" entry
            "* %?"
-           :if-new (file+head "%<%Y-%m-%d-fleeting>.org"
-                              "#+title: %<%Y-%m-%d>)\n")))))
+           :if-new (file+head "%<%m-%d-%Y-fleeting>.org"
+                              "#+title: %<%m-%d-%Y>\n")))))
 
 (after! org-journal
   (setq org-journal-enable-agenda-integration t)
-  (setq org-journal-date-prefix "#+title: Daily Journal Entry\n#+date: ")
-  (setq org-journal-time-prefix "\n* ")
+  (setq org-journal-date-prefix "#+title: ")
+  (setq org-journal-date-format "%A, %x\n\n* Daily TODOs\n\n* Daily Events\n\n* Daily Log %x")
+  (setq org-journal-time-prefix "** ")
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-time-format "%I:%M %p"))
 
