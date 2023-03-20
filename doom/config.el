@@ -33,7 +33,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
-(setq doom-font (font-spec :family "Fira Code Nerd Font Mono" :size 16))
+(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -109,8 +109,9 @@
 
 (after! org-journal
   (setq org-journal-enable-agenda-integration t)
-  (setq org-journal-date-prefix "#+title: ")
-  (setq org-journal-date-format "%A, %x\n\n* Daily TODOs\n\n* Daily Events\n\n* Daily Log %x")
+  (setq org-journal-date-prefix "* ")
+  (setq org-journal-date-format "Daily Log")
+  (setq org-journal-file-header "#+title: %<%A, %x>\n\n")
   (setq org-journal-time-prefix "** ")
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-time-format "%I:%M %p"))
