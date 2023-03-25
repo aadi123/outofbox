@@ -111,7 +111,7 @@
   (setq org-journal-enable-agenda-integration t)
   (setq org-journal-date-prefix "* ")
   (setq org-journal-date-format "Daily Log")
-  (setq org-journal-file-header "#+title: %<%A, %x>\n\n")
+  (setq org-journal-file-header "#+title: %A, %x\n\n")
   (setq org-journal-time-prefix "** ")
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-time-format "%I:%M %p"))
