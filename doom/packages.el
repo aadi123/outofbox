@@ -49,7 +49,11 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 (unpin! org-roam)
-(unpin! org-gcal)
 (package! org-roam-ui)
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
+(package! org-hyperscheduler
+  :recipe (:repo "dmitrym0/org-hyperscheduler"
+    :host github
+    :type git
+    :files ("*")))
