@@ -46,6 +46,7 @@
 (setq deft-directory org-directory)
 (setq deft-recursive t)
 (setq initial-major-mode 'org-mode)
+(setq org-icalendar-use-scheduled '(todo-start event-if-todo))
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -59,9 +60,7 @@
 ;;   - Setting file/directory variables (like `org-directory')
 ;;   - Setting variables which explicitly tell you to set them before their
 ;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
-;;   - Setting doom variables (which start with 'doom-' or '+').
-;;
-;; Here are some additional functions/macros that will help you configure Doom.
+;;   - Setting doom variables (which start with 'doom-' or '+'). Here are some additional functions/macros that will help you configure Doom.
 ;;
 ;; - `load!' for loading external *.el files relative to this one
 ;; - `use-package!' for configuring packages
@@ -97,6 +96,11 @@
   (setq org-journal-time-prefix "** ")
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-time-format "%I:%M %p"))
+
+(after! org-gcal
+  (setq org-gcal-client-id "836757281549-k14sh6itvrshlcced5udqmur6gbif8vm.apps.googleusercontent.com"
+      org-gcal-client-secret "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"
+      org-gcal-fetch-file-alist '(("aadi.murthyananth@gmail.com" .  "~/Dropbox/org/gcal.org"))))
 
 (use-package! websocket
     :after org-roam)
