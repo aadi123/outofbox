@@ -97,11 +97,6 @@
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-time-format "%I:%M %p"))
 
-(after! org-gcal
-  (setq org-gcal-client-id "836757281549-k14sh6itvrshlcced5udqmur6gbif8vm.apps.googleusercontent.com"
-      org-gcal-client-secret "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"
-      org-gcal-fetch-file-alist '(("aadi.murthyananth@gmail.com" .  "~/Dropbox/org/gcal.org"))))
-
 (use-package! websocket
     :after org-roam)
 
