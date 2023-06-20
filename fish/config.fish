@@ -11,3 +11,6 @@ fish_add_path $GOPATH/bin
 set cmd (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 eval $cmd
 starship init fish | source
+
+# opam configuration
+source /home/aaditya/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
