@@ -48,12 +48,6 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
-(unpin! org-roam)
 (package! org-roam-ui)
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
-(package! org-hyperscheduler
-  :recipe (:repo "dmitrym0/org-hyperscheduler"
-    :host github
-    :type git
-    :files ("*")))

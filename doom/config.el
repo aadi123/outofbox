@@ -97,10 +97,6 @@
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-time-format "%I:%M %p"))
 
-(after! org-hyperscheduler
-  (setq org-hyperscheduler-exclude-from-org-roam t)
-  (setq org-hyperscheduler-readonly-mode nil))
-
 (use-package! websocket
     :after org-roam)
 
