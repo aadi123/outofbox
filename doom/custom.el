@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
-   '("/home/aaditya/Dropbox/org/second-brain/20230618212700-chess.org" "/home/aaditya/Dropbox/org/todo.org" "/home/aaditya/Dropbox/org/journal/2023-06-25.org" "/home/aaditya/Dropbox/org/journal/2023-06-19.org"))
+   '("/home/aaditya/Dropbox/org/second-brain/20230618212700-chess.org" "/home/aaditya/Dropbox/org/todo.org" "/home/aaditya/Dropbox/org/journal/2023-08-06.org"))
  '(package-selected-packages '(org-contrib)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

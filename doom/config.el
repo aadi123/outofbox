@@ -101,9 +101,6 @@
   (setq org-hyperscheduler-exclude-from-org-roam t)
   (setq org-hyperscheduler-readonly-mode nil))
 
-(after! format-all
-  (setq +format-with-lsp nil))
-
 (use-package! websocket
     :after org-roam)
 
