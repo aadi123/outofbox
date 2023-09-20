@@ -34,7 +34,7 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16))
-
+(setq shell-file-name (executable-find "bash"))
 (set-frame-parameter nil 'alpha-background 70)
 (add-to-list 'default-frame-alist '(alpha-background . 70))
 
@@ -82,6 +82,8 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(setq-default vterm-shell (executable-find "fish"))
+
 (after! org-roam
   (setq org-roam-db-autosync-mode t)
   (setq org-roam-completion-everywhere t)
@@ -101,19 +103,19 @@
   (setq org-journal-time-format "%I:%M %p"))
 
 (use-package! websocket
-    :after org-roam)
+  :after org-roam)
 
 (use-package! org-roam-ui
-    :after org-roam ;; or :after org
-;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-;;         a hookable mode anymore, you're advised to pick something yourself
-;;         if you don't care about startup time, use
-;;  :hook (after-init . org-roam-ui-mode)
-    :config
-    (setq org-roam-ui-sync-theme t
-          org-roam-ui-follow t
-          org-roam-ui-update-on-save t
-          org-roam-ui-open-on-start t))
+  :after org-roam ;; or :after org
+  ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+  ;;         a hookable mode anymore, you're advised to pick something yourself
+  ;;         if you don't care about startup time, use
+  ;;  :hook (after-init . org-roam-ui-mode)
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
 
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
