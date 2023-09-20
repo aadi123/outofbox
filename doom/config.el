@@ -35,6 +35,9 @@
 (setq doom-theme 'doom-one)
 (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16))
 
+(set-frame-parameter nil 'alpha-background 70)
+(add-to-list 'default-frame-alist '(alpha-background . 70))
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
