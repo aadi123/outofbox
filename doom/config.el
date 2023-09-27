@@ -33,7 +33,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
-(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16))
+(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 20))
 (setq shell-file-name (executable-find "bash"))
 (set-frame-parameter nil 'alpha-background 70)
 (add-to-list 'default-frame-alist '(alpha-background . 70))
@@ -101,6 +101,9 @@
   (setq org-journal-time-prefix "** ")
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-time-format "%I:%M %p"))
+
+(setq +format-with-lsp nil)
+(setq org-preview-latex-default-process 'dvipng)
 
 (use-package! websocket
   :after org-roam)
