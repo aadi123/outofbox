@@ -46,6 +46,7 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Dropbox/org")
 (setq org-roam-directory "~/Dropbox/org/second-brain")
+(setq org-journal-dir "~/Dropbox/org/journal/daily")
 (setq deft-directory org-directory)
 (setq deft-recursive t)
 (setq initial-major-mode 'org-mode)
@@ -83,6 +84,7 @@
 ;; they are implemented.
 
 (setq-default vterm-shell (executable-find "fish"))
+(setq-default explicit-shell-file-name (executable-find "fish"))
 
 (after! org-roam
   (setq org-roam-db-autosync-mode t)
@@ -90,15 +92,11 @@
   (setq org-roam-dailies-capture-templates
         '(("d" "default" entry
            "* %?"
-           :if-new (file+head "%<%m-%d-%Y-fleeting>.org"
-                              "#+title: %<%m-%d-%Y>\n")))))
+           :if-new (file "%<%Y-%m-%d-fleeting>.org")))))
 
 (after! org-journal
+  (setq org-journal-file-type 'daily)
   (setq org-journal-enable-agenda-integration t)
-  (setq org-journal-date-prefix "* ")
-  (setq org-journal-date-format "Daily Log")
-  (setq org-journal-file-header "#+title: %A, %x\n\n")
-  (setq org-journal-time-prefix "** ")
   (setq org-journal-file-format "%Y-%m-%d.org")
   (setq org-journal-time-format "%I:%M %p"))
 
@@ -131,7 +129,12 @@
 
 
 (after! org
-  (setq org-todo-keywords '((sequence "TODO(t)" "PROJ(p)" "LOOP(r)" "STRT(s)" "WAIT(w)" "HOLD(h)" "IDEA(i)" "READ(e)" "|" "DONE(d)" "KILL(k)")
+  (setq org-todo-keywords '((sequence "TODO(t)" "PROJ(p)" "LOOP(r)" "STRT(s)" "WAIT(w)" "HOLD(h)" "IDEA(i)" "READ(e)" "EVENT(v)" "|" "DONE(d)" "KILL(k)")
                             (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")
                             (sequence "|" "OKAY(o)" "YES(y)" "NO(n)")))
   )
+
+(map! :n "j" #'evil-backward-char
+      :n "l" #'evil-previous-line
+      :n "k" #'evil-next-line
+      :n "h" #'evil-forward-char)
