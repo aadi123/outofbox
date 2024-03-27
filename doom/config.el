@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "Aaditya Murthy"
-      user-mail-address "aadi.murthyananth@gmail.com")
+;; (setq user-full-name "John Doe"
+;;       user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -15,7 +15,7 @@
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
+;; - `doom-symbol-font' -- for symbols
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
@@ -33,10 +33,6 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
-(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16))
-(setq shell-file-name (executable-find "bash"))
-(set-frame-parameter nil 'alpha-background 70)
-(add-to-list 'default-frame-alist '(alpha-background . 70))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -45,12 +41,6 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Dropbox/org")
-(setq org-roam-directory "~/Dropbox/org/second-brain")
-(setq org-journal-dir "~/Dropbox/org/journal/daily")
-(setq deft-directory org-directory)
-(setq deft-recursive t)
-(setq initial-major-mode 'org-mode)
-(setq org-icalendar-use-scheduled '(todo-start event-if-todo))
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -64,7 +54,9 @@
 ;;   - Setting file/directory variables (like `org-directory')
 ;;   - Setting variables which explicitly tell you to set them before their
 ;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
-;;   - Setting doom variables (which start with 'doom-' or '+'). Here are some additional functions/macros that will help you configure Doom.
+;;   - Setting doom variables (which start with 'doom-' or '+').
+;;
+;; Here are some additional functions/macros that will help you configure Doom.
 ;;
 ;; - `load!' for loading external *.el files relative to this one
 ;; - `use-package!' for configuring packages
@@ -82,59 +74,23 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-
-(setq-default vterm-shell (executable-find "fish"))
-(setq-default explicit-shell-file-name (executable-find "fish"))
+(after! org-journal
+  (setq org-journal-file-format "%Y-%m-%d.org"
+        org-journal-enable-agenda-integration t
+        org-journal-enable-cache t
+        org-journal-time-format "%l:%M %p")
+)
 
 (after! org-roam
-  (setq org-roam-db-autosync-mode t)
-  (setq org-roam-completion-everywhere t)
-  (setq org-roam-dailies-capture-templates
-        '(("d" "default" entry
-           "* %?"
-           :if-new (file "%<%Y-%m-%d-fleeting>.org")))))
+  (setq org-roam-directory (file-truename "~/Dropbox/org/second-brain"))
+  (org-roam-db-autosync-mode)
+)
 
-(after! org-journal
-  (setq org-journal-file-type 'daily)
-  (setq org-journal-enable-agenda-integration t)
-  (setq org-journal-file-format "%Y-%m-%d.org")
-  (setq org-journal-time-format "%I:%M %p"))
+(after! ox-hugo
+  (setq org-hugo-base-dir "/home/aaditya/Code/aadi123.github.io"))
 
-(setq +format-with-lsp nil)
-(setq org-preview-latex-default-process 'dvipng)
-
-(use-package! websocket
-  :after org-roam)
-
-(use-package! org-roam-ui
-  :after org-roam ;; or :after org
-  ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-  ;;         a hookable mode anymore, you're advised to pick something yourself
-  ;;         if you don't care about startup time, use
-  ;;  :hook (after-init . org-roam-ui-mode)
-  :config
-  (setq org-roam-ui-sync-theme t
-        org-roam-ui-follow t
-        org-roam-ui-update-on-save t
-        org-roam-ui-open-on-start t))
-
-;; accept completion from copilot and fallback to company
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (("C-TAB" . 'copilot-accept-completion-by-word)
-         ("C-<tab>" . 'copilot-accept-completion-by-word)
-         :map copilot-completion-map
-         ("<tab>" . 'copilot-accept-completion)
-         ("TAB" . 'copilot-accept-completion)))
-
-
-(after! org
-  (setq org-todo-keywords '((sequence "TODO(t)" "PROJ(p)" "LOOP(r)" "STRT(s)" "WAIT(w)" "HOLD(h)" "IDEA(i)" "READ(e)" "EVENT(v)" "|" "DONE(d)" "KILL(k)")
-                            (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")
-                            (sequence "|" "OKAY(o)" "YES(y)" "NO(n)")))
-  )
-
-(map! :n "j" #'evil-backward-char
-      :n "l" #'evil-previous-line
-      :n "k" #'evil-next-line
-      :n "h" #'evil-forward-char)
+(map! :n "m" #'evil-backward-char
+    :n "n" #'evil-next-line
+    :n "e" #'evil-previous-line
+    :n "l" #'evil-insert
+    :n "i" #'evil-forward-char)
